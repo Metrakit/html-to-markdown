@@ -443,15 +443,30 @@ class HTML_To_Markdown
 
         $markdown = '';
 
+        $prism_tag = false;
+
         $code_content = html_entity_decode($node->C14N());
-        $code_content = str_replace(array("<code>", "</code>"), "", $code_content);
+
+        $prism_start_tag = '/(<pre.*?><code>.*?)/';
+        $prism_end_tag = '/<\/code><\/pre>/';
+
+        if (preg_match("/(<pre.*?><code>.*?)/", $code_content)) {
+            $prism_tag = true;
+        }
+
+        // Prism tag
+        $code_content = preg_replace($prism_start_tag, "", $code_content);
+        $code_content = preg_replace($prism_end_tag, "", $code_content);
+
         $code_content = str_replace(array("<pre>", "</pre>"), "", $code_content);
+        $code_content = str_replace(array("<code>", "</code>"), "", $code_content);
 
         $lines = preg_split('/\r\n|\r|\n/', $code_content);
         $total = count($lines);
 
+        
         // If there's more than one line of code, prepend each line with four spaces and no backticks.
-        if ($total > 1 || $node->nodeName === 'pre') {
+        if (!$prism_tag && ($total > 1 || $node->nodeName === 'pre')) {
 
             // Remove the first and last line if they're empty
             $first_line = trim($lines[0]);
