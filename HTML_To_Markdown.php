@@ -450,7 +450,7 @@ class HTML_To_Markdown
         $prism_start_tag = '/(<pre.*?><code>.*?)/';
         $prism_end_tag = '/<\/code><\/pre>/';
 
-        if (preg_match("/(<pre.*?><code>.*?)/", $code_content)) {
+        if (preg_match($prism_start_tag, $code_content)) {
             $prism_tag = true;
         }
 
