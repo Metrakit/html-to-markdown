@@ -1,13 +1,20 @@
-HTML To Markdown for PHP
+HTML To Markdown - Extented for PHP
 ========================
 
 A helper class that converts HTML to [Markdown](http://daringfireball.net/projects/markdown/) for your sanity and convenience.
 
-[![Build Status](https://travis-ci.org/nickcernis/html-to-markdown.png?branch=master)](https://travis-ci.org/nickcernis/html-to-markdown)
+### Original repo : https://github.com/nickcernis/html-to-markdown
+
+### Features added in extended version :
+- Add support of [Prism](http://prismjs.com) tags
+
+
+[![Build Status](https://travis-ci.org/Metrakit/html-to-markdown.png?branch=master)](https://travis-ci.org/Metrakit/html-to-markdown)
 
 **Version**: 2.2.1  
 **Requires**: PHP 5.3+  
 **Author**: [@nickcernis](http://twitter.com/nickcernis)  
+**Contributor**: [@jordanejouffroy](http://twitter.com/jordanejouffroy)  
 **License**: [MIT](http://www.opensource.org/licenses/mit-license.php)  
 
 ### Why convert HTML to Markdown?
